@@ -1,0 +1,23 @@
+# Core dependencies
+tree-sitter>=0.20.0
+tree-sitter-languages>=1.10.0  # 预编译的语言包，或手动编译
+gitpython>=3.1.0
+pyyaml>=6.0
+
+# Tokenization & embeddings
+tiktoken>=0.5.0           # OpenAI tokenizer
+transformers>=4.35.0      # HuggingFace models
+torch>=2.0.0              # 如果使用本地 embedding 模型
+openai>=1.0.0             # 如果使用 OpenAI API
+
+# Vector index
+faiss-cpu>=1.7.4          # 或 faiss-gpu
+
+# Search & NLP
+rank-bm25>=0.2.2          # BM25 算法
+nltk>=3.8
+
+# Utilities
+tqdm>=4.66.0
+joblib>=1.3.0
+orjson>=3.9.0             # 更快的 JSON
