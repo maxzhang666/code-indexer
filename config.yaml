@@ -1,0 +1,63 @@
+# Repository settings
+repo: 
+  path: "/path/to/your/repo"
+  name: "owner/repo"
+  branch: "main"
+  
+# Chunking strategy
+chunking:
+  max_tokens: 512
+  overlap_tokens: 64
+  min_tokens: 20
+  prefer_ast: true          # 优先使用 AST 边界
+  fallback_lines: 100       # AST 失败时的行窗口
+  
+# Languages to process (file extensions)
+languages:
+  - py
+  - js
+  - ts
+  - java
+  - go
+  - rb
+  - cpp
+  - c
+  - rs
+  - md
+  
+# Exclusions (glob patterns)
+exclude:
+  - "**/node_modules/**"
+  - "**/. git/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/__pycache__/**"
+  - "**/venv/**"
+  - "**/*. min.js"
+  - "**/*.bundle.*"
+  
+# Embedding model
+embedding:
+  provider: "huggingface"   # 'huggingface' | 'openai'
+  model: "microsoft/codebert-base"  # 或 'text-embedding-ada-002'
+  batch_size: 32
+  device: "cpu"             # 'cpu' | 'cuda'
+  
+# Indexing
+indexing:
+  output_dir: "./index_output"
+  jsonl_file: "records.jsonl"
+  faiss_index:  "code. faiss"
+  metadata_file: "metadata.json"
+  bm25_index: "bm25.pkl"
+  
+# Performance
+performance:
+  num_workers: 4            # 并发进程数
+  cache_embeddings: true
+  incremental:  true         # 增量索引（基于 git diff）
+  
+# Logging
+logging:
+  level:  "INFO"             # DEBUG | INFO | WARNING | ERROR
+  file: "indexer.log"
